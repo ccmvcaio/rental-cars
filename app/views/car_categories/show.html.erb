@@ -1,0 +1,12 @@
+<dl>
+<dt>Nome:</dt>
+<dd><%= @car_category.name %></dd>
+<dt>Diária</dt>
+<dd><%= number_to_currency @car_category.daily_rate %></dd>
+<dt>Seguro do carro</dt>
+<dd><%= number_to_currency @car_category.car_insurance %></dd>
+<dt>Seguro para terceiros</dt>
+<dd><%= number_to_currency @car_category.third_party_insurance %></dd>
+</dl>
+<p></p>
+<%= link_to 'Voltar', car_categories_path %>
