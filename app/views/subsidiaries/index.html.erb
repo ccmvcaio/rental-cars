@@ -6,7 +6,9 @@
 <% else %>
   <% @subsidiaries.each do |subsidiary| %>
     <div>
-    <%= link_to subsidiary.name, subsidiary_path(id: subsidiary.id) %>
+    <%= link_to subsidiary.name, subsidiary %>
     </div>
   <% end %>
 <% end %>
+<p></p>
+<%= link_to 'Registrar uma nova filial', new_subsidiary_path %>
