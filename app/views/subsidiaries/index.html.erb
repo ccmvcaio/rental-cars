@@ -1,5 +1,6 @@
 <h2>Filiais:</h2>
-
+<%= link_to 'Voltar', root_path %>
+<p></p>
 <% if @subsidiaries.empty? %>
   <h3><%= 'Nenhuma filial foi cadastrada' %></h3>
 <% else %>
@@ -9,6 +10,3 @@
     </div>
   <% end %>
 <% end %>
-
-<p></p>
-<%= link_to 'Voltar', root_path %>
