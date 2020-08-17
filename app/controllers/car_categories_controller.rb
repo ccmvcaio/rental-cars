@@ -12,8 +12,12 @@ class CarCategoriesController < ApplicationController
   end
 
   def create
-    @car_category = CarCategory.create(car_category_params)
-    redirect_to @car_category     #Direciona a página para o objeto que foi criado
+    @car_category = CarCategory.new(car_category_params)
+    if @car_category.save
+      redirect_to @car_category
+    else
+      render :new
+    end
   end
 
   private

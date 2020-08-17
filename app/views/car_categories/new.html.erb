@@ -1,4 +1,11 @@
 <h1>Registrar categoria:</h1>
+<% if @car_category.errors.present? %>
+  <ul>
+    <% @car_category.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_with model: @car_category, local: true do |f| %>
   <%= f.label :name, 'Nome' %>
