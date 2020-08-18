@@ -1,10 +1,11 @@
 class CarCategoriesController < ApplicationController
+  before_action :set_car_category, only: [:show, :edit, :update]
+  
   def index
     @car_categories = CarCategory.all
   end
 
   def show
-    @car_category = CarCategory.find(params[:id])
   end
 
   def new
@@ -20,8 +21,22 @@ class CarCategoriesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @car_category.update(car_category_params)
+      redirect_to @car_category
+    else
+      render :edit
+    end
+  end
+
   private
 
+  def set_car_category
+    @car_category = CarCategory.find(params[:id])
+  end
   def car_category_params
     params.require(:car_category).permit(:name, :daily_rate, 
                                          :car_insurance, :third_party_insurance)
