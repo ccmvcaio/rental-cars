@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature 'Admin view subsidiaries' do
   scenario 'successfully' do
-    Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '01.012.123/0001-00', 
+    Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '99.133.221/0001-03', 
                        address: 'Rua dos Milionários, 1010')
-    Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '12.123.234/0001-11',
+    Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '14.566.342/0001-88',
                        address: 'Av. Jabaquara, 2068')
-    Subsidiary.create!(name: 'Rental Cars - São Caetano do Sul', cnpj: '23.234.345/0001-22',
+    Subsidiary.create!(name: 'Rental Cars - São Caetano do Sul', cnpj: '78.896.000/0001-09',
                        address: 'Av. Goiás, 245')
     
     visit root_path
@@ -19,11 +19,11 @@ feature 'Admin view subsidiaries' do
   end
 
   scenario 'and view datails' do
-    Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '01.012.123/0001-00', 
+    Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '99.133.221/0001-03', 
                        address: 'Rua dos Milionários, 1010')
-    Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '12.123.234/0001-11',
+    Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '14.566.342/0001-88',
                        address: 'Av. Jabaquara, 2068')
-    Subsidiary.create!(name: 'Rental Cars - São Caetano do Sul', cnpj: '23.234.345/0001-22',
+    Subsidiary.create!(name: 'Rental Cars - São Caetano do Sul', cnpj: '78.896.000/0001-09',
                        address: 'Av. Goiás, 245')
 
     visit root_path
@@ -31,7 +31,7 @@ feature 'Admin view subsidiaries' do
     click_on 'Rental Cars - Diadema'
     
     expect(page).to have_content('Rental Cars - Diadema')
-    expect(page).to have_content('01.012.123/0001-00')
+    expect(page).to have_content('99.133.221/0001-03')
     expect(page).to have_content('Rua dos Milionários, 1010')
   end
 
@@ -51,7 +51,7 @@ feature 'Admin view subsidiaries' do
   end
 
   scenario 'and return to subsidiaries page' do
-    Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '01.012.123/0001-00', 
+    Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '99.133.221/0001-03', 
                        address: 'Rua dos Milionários, 1010')
     
     visit root_path
