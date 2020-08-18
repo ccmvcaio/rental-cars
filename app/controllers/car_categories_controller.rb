@@ -1,5 +1,5 @@
 class CarCategoriesController < ApplicationController
-  before_action :set_car_category, only: [:show, :edit, :update]
+  before_action :set_car_category, only: [:show, :edit, :update, :destroy]
   
   def index
     @car_categories = CarCategory.all
@@ -30,6 +30,11 @@ class CarCategoriesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @car_category.destroy
+    redirect_to car_categories_path
   end
 
   private
