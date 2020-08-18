@@ -1,0 +1,21 @@
+<% if @subsidiary.errors.present? %>
+  <ul>
+  <% @subsidiary.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @subsidiary, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <div>
+  <%= f.label :cnpj %>
+  <%= f.text_field :cnpj %>
+  </div>
+  <div>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  </div>
+  <%= f.submit 'Enviar' %>
+<% end %>
