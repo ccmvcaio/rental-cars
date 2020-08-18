@@ -1,12 +1,12 @@
 <%= link_to 'Voltar', car_categories_path %>
 
 <dl>
-<dt>Nome:</dt>
+<dt><%= CarCategory.human_attribute_name(:name) %></dt>
 <dd><%= @car_category.name %></dd>
-<dt>Diária</dt>
+<dt><%= CarCategory.human_attribute_name(:daily_rate) %></dt>
 <dd><%= number_to_currency @car_category.daily_rate %></dd>
-<dt>Seguro do carro</dt>
+<dt><%= CarCategory.human_attribute_name(:car_insurance) %></dt>
 <dd><%= number_to_currency @car_category.car_insurance %></dd>
-<dt>Seguro para terceiros</dt>
+<dt><%= CarCategory.human_attribute_name(:third_party_insurance) %></dt>
 <dd><%= number_to_currency @car_category.third_party_insurance %></dd>
 </dl>
