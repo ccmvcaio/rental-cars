@@ -18,7 +18,7 @@ feature 'Admin view subsidiaries' do
     expect(page).to have_content('Rental Cars - São Caetano do Sul')
   end
 
-  scenario 'and view datails' do
+  scenario 'and view details' do
     Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '99.133.221/0001-03', 
                        address: 'Rua dos Milionários, 1010')
     Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '14.566.342/0001-88',

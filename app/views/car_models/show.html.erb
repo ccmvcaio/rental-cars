@@ -1,0 +1,16 @@
+<%= link_to 'Voltar', car_models_path %>
+
+<dl>
+<dt><%= CarModel.human_attribute_name(:name)%></dt>
+<dd><%= @car_model.name %></dd>
+<dt><%= CarModel.human_attribute_name(:year) %></dt>
+<dd><%= @car_model.year %></dd>
+<dt><%= CarModel.human_attribute_name(:manufacturer) %></dt>
+<dd><%= @car_model.manufacturer %></dd>
+<dt><%= CarModel.human_attribute_name(:motorization) %></dt>
+<dd><%= @car_model.motorization %></dd>
+<dt><%= CarModel.human_attribute_name(car_category: :name) %></dt>
+<dd><%= @car_model.car_category.name %></dd>
+<dt><%= CarModel.human_attribute_name(:fuel_type) %></dt>
+<dd><%= @car_model.fuel_type %></dd>
+</dl>
