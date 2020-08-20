@@ -18,6 +18,7 @@ class CarModelsController < ApplicationController
     if @car_model.save
       redirect_to @car_model
     else
+      @car_categories = CarCategory.all
       render :new
     end
   end
