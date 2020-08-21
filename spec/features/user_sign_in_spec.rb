@@ -37,6 +37,7 @@ feature 'User sign in' do
     expect(page).not_to have_content('Caio César')
     expect(page).not_to have_content('Login efetuado com sucesso')
     expect(page).to have_link('Entrar')
-    expect(page).not_to have_link('Entrar')
+    expect(page).not_to have_link('Sair')
+    expect(current_path).to eq root_path
   end
 end

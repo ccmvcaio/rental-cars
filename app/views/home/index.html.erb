@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <%= current_user.name %>
   <h1> Login efetuado com sucesso </h1>>
-  <%= link_to 'Sair', destroy_user_session_path %>
+  <%= link_to 'Sair', destroy_user_session_path(@current_user), method: :delete %>
 <% else %>
   <%= link_to 'Entrar', new_user_session_path %>
 <% end %>
