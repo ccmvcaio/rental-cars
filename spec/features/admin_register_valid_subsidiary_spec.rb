@@ -1,7 +1,18 @@
 require 'rails_helper'
 
   feature 'admin register valid subsidiary' do
+    scenario 'and must be signed in' do
+      visit root_path
+      click_on 'Filiais'
+
+      expect(current_path).to eq new_user_session_path
+    end
+
     scenario 'and attributes must not be blank' do
+      user = User.create!(name: 'Caio César Valério',email: 'caio.valerio@gmail.com',
+                        password: '123456')
+      
+      login_as(user, scope: :user)
       visit root_path
       click_on 'Filiais'
       click_on 'Registrar uma nova filial'
@@ -14,9 +25,12 @@ require 'rails_helper'
     end
 
     scenario 'and subsidiary must be unique' do
+      user = User.create!(name: 'Caio César Valério',email: 'caio.valerio@gmail.com',
+                        password: '123456')
       Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '14.566.342/0001-88',
                          address: 'Av. Jabaquara, 453')
       
+      login_as(user, scope: :user)
       visit root_path
       click_on 'Filiais'
       click_on 'Registrar uma nova filial'

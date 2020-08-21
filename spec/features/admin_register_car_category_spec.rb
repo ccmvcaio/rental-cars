@@ -1,7 +1,18 @@
 require 'rails_helper'
 
 feature 'Admin register car category' do
+  scenario 'and must be signed in' do
+    visit root_path
+    click_on 'Categorias'
+
+    expect(current_path).to eq new_user_session_path
+  end
+
   scenario 'from index page' do
+    user = User.create!(name: 'Caio César Valério',email: 'caio.valerio@gmail.com',
+                        password: '123456')
+
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Categorias'
 
@@ -10,6 +21,10 @@ feature 'Admin register car category' do
   end
 
   scenario 'successfully' do
+    user = User.create!(name: 'Caio César Valério',email: 'caio.valerio@gmail.com',
+                        password: '123456')
+
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Categorias'
     click_on 'Registrar uma nova categoria'

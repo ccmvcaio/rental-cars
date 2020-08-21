@@ -1,10 +1,20 @@
 require 'rails_helper'
 
 feature 'Admin edits subsidiary' do
+  scenario 'and must be signed in' do
+    visit root_path
+    click_on 'Filiais'
+
+    expect(current_path).to eq new_user_session_path
+  end
+
   scenario 'attributes cant be blank' do
+    user = User.create!(name: 'Caio César Valério',email: 'caio.valerio@gmail.com',
+                        password: '123456')
     Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '14.566.342/0001-88',
                        address: 'Av. Jabaquara, 245')
 
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Filiais'
     click_on 'Rental Cars - São Paulo'
@@ -18,11 +28,14 @@ feature 'Admin edits subsidiary' do
   end
 
   scenario 'subsidiary must be unique' do
+    user = User.create!(name: 'Caio César Valério',email: 'caio.valerio@gmail.com',
+                        password: '123456')
     Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '14.566.342/0001-88',
                        address: 'Av. Jabaquara, 245')
     Subsidiary.create!(name: 'Rental Cars - Diadema', cnpj: '99.133.221/0001-03',
                        address: 'Praça da Moça, 43')
 
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Filiais'
     click_on 'Rental Cars - Diadema'
@@ -34,9 +47,12 @@ feature 'Admin edits subsidiary' do
   end
   
   scenario 'successfully' do
+    user = User.create!(name: 'Caio César Valério',email: 'caio.valerio@gmail.com',
+                        password: '123456')
     Subsidiary.create!(name: 'Rental Cars - São Paulo', cnpj: '14.566.342/0001-88',
                        address: 'Av. Jabaquara, 245')
 
+  login_as(user, scope: :user)
   visit root_path
   click_on 'Filiais'
   click_on 'Rental Cars - São Paulo'
@@ -53,5 +69,4 @@ feature 'Admin edits subsidiary' do
   expect(page).to have_content('Praça da Moça, 22')
   expect(page).not_to have_content('Av. Jabaquara, 245')
   end
-
 end
