@@ -4,6 +4,7 @@ class CarModelsController < ApplicationController
   
   def index
     @car_models = CarModel.all
+    @car_categories = CarCategory.all
   end
 
   def show
