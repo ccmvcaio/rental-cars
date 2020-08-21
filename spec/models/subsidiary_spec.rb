@@ -24,7 +24,7 @@ describe Subsidiary, type: :model do
 
     it 'CNPJ must be valid' do
       subsidiary = Subsidiary.new(name: 'Rental Cars - São Paulo', 
-                                  cnpj: '02.010.020/00000-00', address: 'Av Paulista, 989')
+                                  cnpj: '14.566.342/0000-00', address: 'Av Paulista, 989')
       
       subsidiary.valid?
 
