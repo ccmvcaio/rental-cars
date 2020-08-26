@@ -32,7 +32,7 @@ feature 'Admin view car model of one category' do
     expect(page).to have_content('Flex')
   end
 
-  xscenario 'successfully' do
+  scenario 'successfully' do
     user = User.create!(name: 'Caio César Valério', email: 'caio.valerio@gmail.com',
                         password: '123456')
     car_category_top = CarCategory.create!(name: 'Top', daily_rate: 105.5,
@@ -51,14 +51,10 @@ feature 'Admin view car model of one category' do
     login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
-    click_on 'Flex'
+    click_on 'Flex - Chevrolet Cobalt 2020'
 
-    expect(page).to have_content('Jetta')
-    expect(page).to have_content('2020', count: 2)
-    expect(page).to have_content('2.0')
-    expect(page).to have_content('Volkswagen')
-    expect(page).to have_content('Gasolina')
-    expect(page).to have_content('Top')
+    expect(page).not_to have_content('Jetta')
+    expect(page).to have_content('2020', count: 1)
     expect(page).to have_content('Cobalt')
     expect(page).to have_content('1.6')
     expect(page).to have_content('Chevrolet')

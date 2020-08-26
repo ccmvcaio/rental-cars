@@ -56,7 +56,7 @@ feature 'admin view car models' do
     login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
-    click_on 'Renault Sandero - 2020 - Econo'
+    click_on 'Econo - Renault Sandero 2020'
 
     expect(page).to have_content('Sandero')
     expect(page).to have_content('2020')

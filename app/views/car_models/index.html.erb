@@ -7,7 +7,8 @@
 
 <% @car_models.each do |car_model|%>
   <ul>
-  <li><%= link_to "#{car_model.car_category.name}", car_model%></li>
+  <li><%= link_to "#{car_model.car_category.name} - #{car_model.manufacturer}
+                   #{car_model.name} #{car_model.year}", car_model%></li>
   </ul>
 <% end %>
 
