@@ -8,6 +8,6 @@ class Rental < ApplicationRecord
 
   private
   def generate_token
-    self.token = SecureRandom.alphanumeric(6)
+    self.token = SecureRandom.alphanumeric(6).upcase
   end
 end
