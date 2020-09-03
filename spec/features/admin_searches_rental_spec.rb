@@ -26,4 +26,8 @@ feature 'Admin searches rental' do
     expect(page).to have_content(rental.client.name)
     expect(page).to have_content(rental.user.email)
   end
+
+  xscenario 'and finds nothing' do
+
+  end
 end
