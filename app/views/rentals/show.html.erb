@@ -2,3 +2,15 @@
 <%= link_to 'Voltar', rentals_path %>
 
 <%= render partial: 'rental', locals: {rental: @rental} %>
+
+<% if @rental.car_rental %>
+  <h2>Locação iniciada</h2>
+  Carro Escolhido:
+  <%= @rental.car_rental.car.description %>
+  Usuário:
+  <%= @rental.car_rental.user.email%>
+  Início da locação
+  <%= l @rental.car_rental.start_date %>
+<% else %>
+  <%= link_to 'Iniciar locação', new_rental_car_rental_path(@rental.id) %>
+<% end %>

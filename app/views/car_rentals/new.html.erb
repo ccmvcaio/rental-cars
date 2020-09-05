@@ -1,0 +1,11 @@
+<h1>Locação</h1>
+<h3>Dados da locação</h3>
+<%= render @rental %>
+<h3>Preencha os campos abaixos para iniciar a locação</h3>
+
+<%= form_with model: [@rental, @car_rental], local: true do |f| %>
+  <%= f.label :car_id, 'Carros disponíveis' %>
+  <%= f.collection_select :car_id, @available_cars, :id, :description %>
+  <%= f.submit 'Iniciar' %>
+
+<% end %>
