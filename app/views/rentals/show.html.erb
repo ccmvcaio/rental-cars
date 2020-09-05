@@ -1,13 +1,4 @@
 <h3>Locação agendada</h3>
 <%= link_to 'Voltar', rentals_path %>
 
-<dl>
-  <dt><%= Rental.human_attribute_name(:start_date) %></dt>
-  <dd><%= l @rental.start_date %></dd>
-  <dt><%= Rental.human_attribute_name(:end_date) %></dt>
-  <dd><%= l @rental.end_date %></dd>
-  <dt><%= Rental.human_attribute_name(:name) %></dt>
-  <dd><%= @rental.client.name %></dd>
-  <dd><%= @rental.client.email %></dd>
-  <dd><%= @rental.client.cpf %></dd>
-</dl>
+<%= render partial: 'rental', locals: {rental: @rental} %>

@@ -1,0 +1,16 @@
+<dl>
+  <dt><%= Rental.human_attribute_name(:token) %></dt>
+  <dd><%= rental.token %></dd>
+  <dt><%= Rental.human_attribute_name(:start_date) %></dt>
+  <dd><%= l rental.start_date %></dd>
+  <dt><%= Rental.human_attribute_name(:end_date) %></dt>
+  <dd><%= l rental.end_date %></dd>
+  <dt><%= Rental.human_attribute_name(:car_category) %></dt>
+  <dd><%= rental.car_category.name %></dd>
+  <dt><%= Rental.human_attribute_name(:name) %></dt>
+  <dd><%= rental.client.name %></dd>
+  <dd><%= rental.client.email %></dd>
+  <dd><%= rental.client.cpf %></dd>
+  <dt><%= Rental.human_attribute_name(:user) %></dt>
+  <dd><%= rental.user.email %><dd>
+</dl>
