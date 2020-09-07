@@ -16,7 +16,7 @@ feature 'User start rental' do
                                  manufacturer: 'Volkswagen', fuel_type: 'Gasolina',
                                  car_category: car_category)
     car = Car.create!(license_plate: 'ABC123', color: 'Preto', car_model: car_model,
-                      mileage: 0)
+                      mileage: 0, status: :available)
     user = User.create!(name: 'Ninguém', email: 'ninguem@gmail.com',
                         password: '123456')
     
@@ -43,5 +43,6 @@ feature 'User start rental' do
     expect(page).to have_content(car.color)
     expect(page).not_to have_link('Iniciar locação')
     expect(page).to have_content("02 de outubro de 2020, 13:58:02")
+    expect(car.reload).to be_rented
   end
 end
